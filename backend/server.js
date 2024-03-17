@@ -1,12 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const app = express();
 const port = 5000;
+
+dotenv.config();
 
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://eren-e-commerce:K8Lfj88BSvsopABn@mern-e-commerce.ksa88ap.mongodb.net/",
+      process.env.MONGO_URI,
       {}
     );
     console.log(`MongoDB connected`);
