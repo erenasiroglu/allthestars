@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
+const mainRoute = require("./routes/index.js");
 const port = 5000;
 
 dotenv.config();
@@ -18,29 +19,8 @@ const connectDB = async () => {
   }
 };
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 
-app.get("/api", (req, res) => {
-  res.send("API is running");
-});
-
-app.get("/api/products", (req, res) => {
-  const products = [
-    {
-      id: 1,
-      name: "Macbook",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      name: "Old Car",
-      image: "https://via.placeholder.com/150",
-    },
-  ];
-  res.json(products);
-});
+app.use("/api", mainRoute);
 
 app.listen(port, () => {
     connectDB();
