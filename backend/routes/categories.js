@@ -25,6 +25,7 @@ router.get("/", async (req, res) => {
     const allCategories = await Category.find();
     res.status(200).json(allCategories);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error.message });
   }
 });
