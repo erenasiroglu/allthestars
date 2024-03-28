@@ -11,7 +11,7 @@ import {
 } from "@ant-design/icons";
 // import { useNavigate } from "react-router-dom";
 
-const { Sider, Header, Content } = Layout;
+const { Sider, Header, Content, Footer } = Layout;
 
 const AdminLayout = ({ children }) => {
 //   const navigate = useNavigate();
@@ -163,6 +163,9 @@ const AdminLayout = ({ children }) => {
           </Content>
         </Layout>
       </Layout>
+      <Footer style={{ textAlign: 'center' }}>
+          ©{new Date().getFullYear()} Created by Eren Nasıroğlu
+        </Footer>
     </div>
   );
 };
