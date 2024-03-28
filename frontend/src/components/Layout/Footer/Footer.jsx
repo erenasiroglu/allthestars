@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="footer-contact-top">
             <h3 className="contact-title">
               Need help? <br/>
-              (+90) 123 456 78 90
+              (+90) 507 567 3737
             </h3>
             <p className="contact-desc">We are available 8:00am – 7:00pm</p>
           </div>
