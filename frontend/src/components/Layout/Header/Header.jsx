@@ -130,13 +130,13 @@ const Header = () => {
                                 <a href="#">Shop Load More</a>
                               </li>
                               <li>
-                                <a href="#">Cart Modal</a>
+                                <a href="#">Card Modal</a>
                               </li>
                               <li>
-                                <a href="#">Cart Drawer</a>
+                                <a href="#">Card Drawer</a>
                               </li>
                               <li>
-                                <a href="#">Cart Page</a>
+                                <a href="#">Card Page</a>
                               </li>
                             </ul>
                           </div>
@@ -186,10 +186,10 @@ const Header = () => {
                 <a href="#">
                   <i className="bi bi-heart"></i>
                 </a>
-                <div className="header-cart">
-                  <a href="cart.html" className="header-cart-link">
+                <div className="header-Card">
+                  <a href="Card.html" className="header-Card-link">
                     <i className="bi bi-bag"></i>
-                    <span className="header-cart-count">0</span>
+                    <span className="header-Card-count">0</span>
                   </a>
                 </div>
               </div>

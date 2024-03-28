@@ -166,7 +166,7 @@ const Footer = () => {
               <a href="#">Privacy Policy</a>
             </li>
             <li className="list-item">
-              <a href="#">Terms and Conditions</a>
+            <img src="img/footer/google-play.png" alt="" />
             </li>
             <li className="list-item">
               <a href="#">Returns Policy</a>
