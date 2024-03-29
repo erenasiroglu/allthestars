@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ setIsSearchShow }) => {
   return (
     <header>
       <div className="global-notification">
@@ -180,7 +181,10 @@ const Header = () => {
                 <a href="account.html" className="header-account">
                   <i className="bi bi-person"></i>
                 </a>
-                <button className="search-button">
+                <button
+                  className="search-button"
+                  onClick={() => setIsSearchShow(false)}
+                >
                   <i className="bi bi-search"></i>
                 </button>
                 <a href="#">
@@ -199,6 +203,10 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  setIsSearchShow: PropTypes.func.isRequired,
 };
 
 export default Header;
