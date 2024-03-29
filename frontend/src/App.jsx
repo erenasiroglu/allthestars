@@ -3,8 +3,8 @@
 // import ContactPage from "./pages/ContactPage";
 // import AuthPage from "./pages/AuthPage";
 // import CardPage from "./pages/CardPage";
-// import BlogDetailsPage from "./pages/BlogDetailsPage";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
+import BlogDetailsPage from "./pages/BlogDetailsPage";
+// import ProductDetailsPage from "./pages/ProductDetailsPage";
 import "./App.css";
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       {/* <ContactPage /> */}
       {/* <AuthPage/> */}
       {/* <CardPage/> */}
-      {/* <BlogDetailsPage /> */}
-      <ProductDetailsPage />
+      <BlogDetailsPage />
+      {/* <ProductDetailsPage /> */}
     </>
   );
 }
