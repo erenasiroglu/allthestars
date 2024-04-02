@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"; 
+import PropTypes from "prop-types";
 import "./Search.css";
 
 const Search = ({ isSearchShow, setIsSearchShow }) => {
@@ -46,8 +46,16 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
             </a>
           </div>
         </div>
-        <i className="bi bi-x-circle" id="close-search" onClick={()=> setIsSearchShow(false)}></i>
+        <i
+          className="bi bi-x-circle"
+          id="close-search"
+          onClick={() => setIsSearchShow(false)}
+        ></i>
       </div>
+      <div
+        className="modal-overlay"
+        onClick={() => setIsSearchShow(false)}
+      ></div>
     </div>
   );
 };
@@ -56,6 +64,5 @@ Search.propTypes = {
   isSearchShow: PropTypes.bool.isRequired,
   setIsSearchShow: PropTypes.func.isRequired,
 };
-
 
 export default Search;
