@@ -2,6 +2,11 @@ import PropTypes from "prop-types";
 import "./Dialog.css";
 
 const Dialog = ({ isDialogShow, setIsDialogShow }) => {
+  const handleCloseDialog = (event) => {
+    const checked = event.target.checked;
+    localStorage.setItem("dialog", JSON.stringify(!checked));
+  };
+
   return (
     <div className={`modal-dialog ${isDialogShow ? "show" : ""}`}>
       <div className="modal-content">
@@ -24,7 +29,7 @@ const Dialog = ({ isDialogShow, setIsDialogShow }) => {
               <input type="text" placeholder="Enter Email Address Here" />
               <button className="btn btn-primary">SUBSCRIBE</button>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={handleCloseDialog} />
                 <span>Don`t show this popup again</span>
               </label>
             </form>
@@ -40,8 +45,8 @@ const Dialog = ({ isDialogShow, setIsDialogShow }) => {
 };
 
 Dialog.propTypes = {
-    isDialogShow: PropTypes.bool.isRequired,
-    setIsDialogShow: PropTypes.func.isRequired,
-  };
+  isDialogShow: PropTypes.bool.isRequired,
+  setIsDialogShow: PropTypes.func.isRequired,
+};
 
 export default Dialog;
