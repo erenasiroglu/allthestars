@@ -204,6 +204,17 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
 }
 
+/* react-slick-css */
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
+
+
 /*! base end  */
 
 /* base responsive  */

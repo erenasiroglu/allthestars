@@ -109,11 +109,11 @@ header {
   display: flex;
 }
 
-.header-right .header-cart {
+.header-right .header-card {
   position: relative;
 }
 
-.header-right .header-cart-link .header-cart-count {
+.header-right .header-card-link .header-card-count {
   width: 16px;
   height: 16px;
   background-color: #1367ef;

@@ -191,9 +191,9 @@ const Header = ({ setIsSearchShow }) => {
                   <i className="bi bi-heart"></i>
                 </a>
                 <div className="header-Card">
-                  <a href="Card.html" className="header-Card-link">
+                  <a href="Card.html" className="header-card-link">
                     <i className="bi bi-bag"></i>
-                    <span className="header-Card-count">0</span>
+                    <span className="header-card-count">0</span>
                   </a>
                 </div>
               </div>
