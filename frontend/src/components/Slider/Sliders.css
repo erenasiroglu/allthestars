@@ -50,21 +50,22 @@
     width: 60px;
     height: 60px;
     border-radius: 100%;
-    border: 1px solid #dee0ea;
-    background-color: white;
+    border: none;
     opacity: 0.5;
     transition: 0.2s ease all;
   }
 
   .slider-buttons button:hover {
-    background-color: #1367ef;
     opacity: 1;
-    color: #fff;
-    border-color: #1367ef;
+    border: none;
   }
 
   .slider-buttons button i {
     font-size: 30px;
+  }
+
+  .slider .slider-dot {
+    background: none;
   }
 
   .slider .slider-dots {
@@ -92,7 +93,6 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    background-color: #1367ef;
     border-radius: 100%;
   }
 

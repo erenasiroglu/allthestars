@@ -29,20 +29,6 @@ const Footer = () => {
             </h3>
             <p className="contact-desc">We are available 8:00am – 7:00pm</p>
           </div>
-          <div className="footer-contact-bottom">
-            <div className="download-app">
-              <a href="#">
-                <img src="img/footer/app-store.png" alt=""/>
-              </a>
-              <a href="#">
-                <img src="img/footer/google-play.png" alt=""/>
-              </a>
-            </div>
-            <p className="privacy-text">
-              <strong>Shopping App:</strong> Try our View in Your Room feature, manage registries and save payment
-              info.
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -61,7 +47,7 @@ const Footer = () => {
           </div>
           <div className="footer-contact">
             <p>
-              <a href="tel:555 555 55 55">(+90) 507 567 3737</a> – <a
+              <a href="tel:507 567 3737">(+90) 507 567 3737</a> – <a
                 href="mailto:erenasiroglu1@gmail.com">erenasiroglu1@gmail.com</a>
             </p>
           </div>
@@ -157,16 +143,10 @@ const Footer = () => {
             Copyright 2024 © E-Commerce Theme. All right reserved. Powered by Eren Nasıroğlu.
           </p>
         </div>
-        <a href="#">
-          <img src="img/footer/cards.png" alt=""/>
-        </a>
         <div className="footer-menu">
           <ul className="footer-menu-list">
             <li className="list-item">
               <a href="#">Privacy Policy</a>
-            </li>
-            <li className="list-item">
-            <img src="img/footer/google-play.png" alt="" />
             </li>
             <li className="list-item">
               <a href="#">Returns Policy</a>

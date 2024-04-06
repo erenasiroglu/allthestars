@@ -1,8 +1,10 @@
-const SliderItem = () => {
+import PropTypes from "prop-types";
+
+const SliderItem = ({imgSrc}) => {
   return (
     <div className="slider-item fade">
       <div className="slider-image">
-        <img src="img/slider/slider1.jpg" className="img-fluid" alt="" />
+        <img src={imgSrc} className="img-fluid" alt="" />
       </div>
       <div className="container">
         <p className="slider-title">SUMMER 2024</p>
@@ -13,6 +15,10 @@ const SliderItem = () => {
       </div>
     </div>
   );
+};
+
+SliderItem.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
 };
 
 export default SliderItem;
