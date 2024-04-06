@@ -208,7 +208,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .slick-slide > div {
   margin: 0 10px;
-}
+}e
 
 .slick-list {
   margin: 0 -10px;
@@ -216,6 +216,31 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 /*! base end  */
+
+#conversation-badge {
+  background: #D4D4D4;
+  color: Black;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.tilt-animation {
+  animation: tilt-shaking 0.25s;
+}
 
 /* base responsive  */
 
