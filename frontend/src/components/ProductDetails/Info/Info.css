@@ -131,8 +131,8 @@
 
   .site-main .values .values-list {
     display: flex;
+    flex-direction: row;
     gap: 10px;
-    flex-wrap: wrap;
   }
 
   .site-main .values .values-list span {
