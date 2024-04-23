@@ -1,5 +1,3 @@
-/*! header start  */
-
 header {
   border-bottom: 1px solid #dee0ea;
   position: sticky;
@@ -109,11 +107,11 @@ header {
   display: flex;
 }
 
-.header-right .header-card {
+.header-right .header-cart {
   position: relative;
 }
 
-.header-right .header-card-link .header-card-count {
+.header-right .header-cart-link .header-cart-count {
   width: 16px;
   height: 16px;
   background-color: #1367ef;
@@ -220,11 +218,6 @@ header .menu-dropdown-content a:hover {
   margin-top: 5px;
 }
 
-/*? menu dropdown end  */
-
-/*! header end  */
-
-/* header responsive */
 @media (max-width: 650px) {
   .header-center {
     position: fixed;

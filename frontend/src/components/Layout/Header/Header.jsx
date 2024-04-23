@@ -1,14 +1,17 @@
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import Proptypes from "prop-types";
+import { CartContext } from "../../../context/CartProvider";
 import "./Header.css";
 
 const Header = ({ setIsSearchShow }) => {
+  const { cartItems } = useContext(CartContext);
   return (
     <header>
       <div className="global-notification">
         <div className="container">
           <p>
             SUMMER SALE FOR ALL SWIM SUITS AND FREE EXPRESS INTERNATIONAL
-            DELIVERY - OFF 50%! 
+            DELIVERY - OFF 50%!
             <a href="shop.html"> SHOP NOW</a>
           </p>
         </div>
@@ -131,20 +134,20 @@ const Header = ({ setIsSearchShow }) => {
                                 <a href="#">Shop Load More</a>
                               </li>
                               <li>
-                                <a href="#">Card Modal</a>
+                                <a href="#">Cart Modal</a>
                               </li>
                               <li>
-                                <a href="#">Card Drawer</a>
+                                <a href="#">Cart Drawer</a>
                               </li>
                               <li>
-                                <a href="#">Card Page</a>
+                                <a href="#">Cart Page</a>
                               </li>
                             </ul>
                           </div>
                         </div>
                         <div className="megamenu-single">
                           <a href="#">
-                            <img src="img/mega-menu.jpg" alt="" />
+                            <img src="/img/mega-menu.jpg" alt="" />
                           </a>
                           <h3 className="megamenu-single-title">
                             JOIN THE LAYERING GANG
@@ -190,10 +193,10 @@ const Header = ({ setIsSearchShow }) => {
                 <a href="#">
                   <i className="bi bi-heart"></i>
                 </a>
-                <div className="header-Card">
-                  <a href="Card.html" className="header-card-link">
+                <div className="header-cart">
+                  <a href="cart.html" className="header-cart-link">
                     <i className="bi bi-bag"></i>
-                    <span className="header-card-count">0</span>
+                    <span className="header-cart-count">{cartItems}</span>
                   </a>
                 </div>
               </div>
@@ -205,8 +208,8 @@ const Header = ({ setIsSearchShow }) => {
   );
 };
 
-Header.propTypes = {
-  setIsSearchShow: PropTypes.func.isRequired,
-};
-
 export default Header;
+
+Header.propTypes = {
+  setIsSearchShow: Proptypes.func,
+};

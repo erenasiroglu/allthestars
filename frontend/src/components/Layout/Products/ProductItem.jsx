@@ -1,13 +1,14 @@
+import { useContext } from "react";
 import PropTypes from "prop-types";
+import { CartContext } from "../../../context/CartProvider";
 import "./ProductItem.css";
 
-const ProductItem = ({ productItem, setCartItems }) => {
-  const addToCart = (cartItem) => {
-    setCartItems((prevCart) => [...prevCart, cartItem]);
-  };
+const ProductItem = ({ productItem }) => {
+  const {addToCart} = useContext(CartContext);
 
   return (
     <div className="product-item glide__slide glide__slide--active">
+      {name}
       <div className="product-image">
         <a href="#">
         <img src={productItem.img.singleImage} alt="" className="img1" />
