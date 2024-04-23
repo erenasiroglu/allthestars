@@ -1,10 +1,10 @@
-const CardTotals = () => {
+export const CartTotals = () => {
     return (
-      <div className="card-totals">
-        <h2>Card totals</h2>
+      <div className="cart-totals">
+        <h2>cart totals</h2>
         <table>
           <tbody>
-            <tr className="card-subtotal">
+            <tr className="cart-subtotal">
               <th>Subtotal</th>
               <td>
                 <span id="subtotal">$316.00</span>
@@ -29,7 +29,7 @@ const CardTotals = () => {
             <tr>
               <th>Total</th>
               <td>
-                <strong id="card-total">$316.00</strong>
+                <strong id="cart-total">$316.00</strong>
               </td>
             </tr>
           </tbody>
@@ -41,4 +41,4 @@ const CardTotals = () => {
     );
   };
   
-  export default CardTotals;
+  export default CartTotals;

@@ -1,6 +1,10 @@
-import CardItem from "./CardItem";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartProvider";
+import CartItem from "./CartItem";
 
-const CardTable = () => {
+export const CartTable = () => {
+  const { cartItems } = useContext(CartContext);
+  console.log("dsjfjfd", cartItems)
   return (
     <table className="shop-table">
       <thead>
@@ -13,12 +17,13 @@ const CardTable = () => {
           <th className="product-subtotal">Subtotal</th>
         </tr>
       </thead>
-      <tbody className="card-wrapper">
-        <CardItem />
-        <CardItem />
+      <tbody className="cart-wrapper">
+      {cartItems.map((item) => (
+          <CartItem cartItem={item} key={item.id} />
+        ))}
       </tbody>
     </table>
   );
 };
 
-export default CardTable;
+export default CartTable;
