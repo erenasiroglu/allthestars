@@ -1,6 +1,6 @@
 import "./Policy.css";
 
-const Policy = () => {
+export const Policy = () => {
   return (
     <section className="policy">
       <div className="container">
@@ -27,7 +27,7 @@ const Policy = () => {
             </div>
           </li>
           <li className="policy-item">
-            <i className="bi bi-credit-card"></i>
+            <i className="bi bi-credit-cart"></i>
             <div className="policy-texts">
               <strong> PAYMENT METHOD</strong>
               <span>Secure Payment</span>

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Layout/Footer/Footer";
 import Header from "../components/Layout/Header/Header";
 import Proptypes from "prop-types";
-import Search from "../components/Modals/Search";
+import Search from "../components/Modals/Search"
 import Dialog from "../components/Modals/Dialog/Dialog";
 
-const MainLayout = ({ children }) => {
+export const MainLayout = ({ children }) => {
   const [isSearchShow, setIsSearchShow] = useState(false);
   const [isDialogShow, setIsDialogShow] = useState(false);
 
@@ -31,6 +31,7 @@ const MainLayout = ({ children }) => {
 };
 
 export default MainLayout;
+
 MainLayout.propTypes = {
   children: Proptypes.node,
 };

@@ -9,122 +9,123 @@ import {
   ShoppingCartOutlined,
   AppstoreOutlined,
 } from "@ant-design/icons";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const { Sider, Header, Content, Footer } = Layout;
+const { Sider, Header, Content } = Layout;
 
 const AdminLayout = ({ children }) => {
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const menuItems = [
     {
       key: "1",
       icon: <DashboardOutlined />,
       label: "Dashboard",
-    //   onClick: () => {
-    //     navigate(`/admin`);
-    //   },
+      onClick: () => {
+        navigate(`/admin`);
+      },
     },
     {
       key: "2",
       icon: <AppstoreOutlined />,
-      label: "Categories",
+      label: "Kategoriler",
       path: "/",
       children: [
         {
           key: "3",
-          label: "Category List",
+          label: "Kategori Listesi",
           path: "/admin/categories",
-        //   onClick: () => {
-        //     navigate(`/admin/categories`);
-        //   },
+          onClick: () => {
+            navigate(`/admin/categories`);
+          },
         },
         {
           key: "4",
-          label: "Create New Category",
+          label: "Yeni Kategori Oluştur",
           path: "/admin/categories/create",
-        //   onClick: () => {
-        //     navigate("/admin/categories/create");
-        //   },
+          onClick: () => {
+            navigate("/admin/categories/create");
+          },
         },
       ],
     },
     {
       key: "5",
       icon: <LaptopOutlined />,
-      label: "Products",
+      label: "Ürünler",
       path: "/",
       children: [
         {
           key: "6",
-          label: "Product List",
+          label: "Ürün Listesi",
           path: "/admin/products",
-        //   onClick: () => {
-        //     navigate(`/admin/products`);
-        //   },
+          onClick: () => {
+            navigate(`/admin/products`);
+          },
         },
         {
           key: "7",
-          label: "Create New Product",
+          label: "Yeni Ürün Oluştur",
           path: "/admin/products/create",
-        //   onClick: () => {
-        //     navigate("/admin/products/create");
-        //   },
+          onClick: () => {
+            navigate("/admin/products/create");
+          },
         },
       ],
     },
     {
       key: "8",
       icon: <BarcodeOutlined />,
-      label: "Coupons",
+      label: "Kuponlar",
       path: "/admin/coupons",
       children: [
         {
           key: "9",
-          label: "Coupon List",
+          label: "Kupon Listesi",
           path: "/admin/coupons",
-        //   onClick: () => {
-        //     navigate(`/admin/coupons`);
-        //   },
+          onClick: () => {
+            navigate(`/admin/coupons`);
+          },
         },
         {
           key: "10",
-          label: "Created New Coupon",
+          label: "Yeni Kupon Oluştur",
           path: "/admin/coupons/create",
-        //   onClick: () => {
-        //     navigate("/admin/coupons/create");
-        //   },
+          onClick: () => {
+            navigate("/admin/coupons/create");
+          },
         },
       ],
     },
     {
       key: "11",
       icon: <UserOutlined />,
-      label: "User List",
+      label: "Kullanıcı Listesi",
       path: "/admin/users",
-    //   onClick: () => {
-    //     navigate(`/admin/users`);
-    //   },
+      onClick: () => {
+        navigate(`/admin/users`);
+      },
     },
     {
       key: "12",
       icon: <ShoppingCartOutlined />,
-      label: "Orders",
-    //   onClick: () => {
-    //     navigate(`/admin/orders`);
-    //   },
+      label: "Siparişler",
+      onClick: () => {
+        navigate(`/admin/orders`);
+      },
     },
     {
       key: "13",
       icon: <RollbackOutlined />,
-      label: "Go to Dashboard",
-    //   onClick: () => {
-    //     navigate(`/`);
-    //   },
+      label: "Ana Sayfaya Git",
+      onClick: () => {
+        navigate(`/`);
+      },
     },
-  ]
+  ];
   return (
     <div className="admin-layout">
-         <Layout
+      <Layout
         style={{
           minHeight: "100vh",
         }}
@@ -147,7 +148,7 @@ const AdminLayout = ({ children }) => {
                 color: "white",
               }}
             >
-              <h1>Admin Panel</h1>
+              <h2>Admin Paneli</h2>
             </div>
           </Header>
           <Content>
@@ -159,13 +160,11 @@ const AdminLayout = ({ children }) => {
               }}
             >
               {children}
+              asd
             </div>
           </Content>
         </Layout>
       </Layout>
-      <Footer style={{ textAlign: 'center' }}>
-          ©{new Date().getFullYear()} Created by Eren Nasıroğlu
-        </Footer>
     </div>
   );
 };
