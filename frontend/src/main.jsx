@@ -1,6 +1,6 @@
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
+import { Layout } from "./layouts/Layouts";
 import ReactDOM from "react-dom/client";
 import CartProvider from "./context/CartProvider";
 
@@ -11,9 +11,9 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <CartProvider>
-      <MainLayout>
+      <Layout>
         <App />
-      </MainLayout>
+      </Layout>
     </CartProvider>
   </BrowserRouter>
 );

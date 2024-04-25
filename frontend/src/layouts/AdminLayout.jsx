@@ -28,12 +28,12 @@ const AdminLayout = ({ children }) => {
     {
       key: "2",
       icon: <AppstoreOutlined />,
-      label: "Kategoriler",
+      label: "Categories",
       path: "/",
       children: [
         {
           key: "3",
-          label: "Kategori Listesi",
+          label: "Category List",
           path: "/admin/categories",
           onClick: () => {
             navigate(`/admin/categories`);
@@ -52,7 +52,7 @@ const AdminLayout = ({ children }) => {
     {
       key: "5",
       icon: <LaptopOutlined />,
-      label: "Ürünler",
+      label: "Products",
       path: "/",
       children: [
         {
@@ -65,7 +65,7 @@ const AdminLayout = ({ children }) => {
         },
         {
           key: "7",
-          label: "Yeni Ürün Oluştur",
+          label: "Create Product",
           path: "/admin/products/create",
           onClick: () => {
             navigate("/admin/products/create");
@@ -76,7 +76,7 @@ const AdminLayout = ({ children }) => {
     {
       key: "8",
       icon: <BarcodeOutlined />,
-      label: "Kuponlar",
+      label: "Coupons",
       path: "/admin/coupons",
       children: [
         {
@@ -89,7 +89,7 @@ const AdminLayout = ({ children }) => {
         },
         {
           key: "10",
-          label: "Yeni Kupon Oluştur",
+          label: "Create Coupon",
           path: "/admin/coupons/create",
           onClick: () => {
             navigate("/admin/coupons/create");
@@ -100,7 +100,7 @@ const AdminLayout = ({ children }) => {
     {
       key: "11",
       icon: <UserOutlined />,
-      label: "Kullanıcı Listesi",
+      label: "Users",
       path: "/admin/users",
       onClick: () => {
         navigate(`/admin/users`);
@@ -109,7 +109,7 @@ const AdminLayout = ({ children }) => {
     {
       key: "12",
       icon: <ShoppingCartOutlined />,
-      label: "Siparişler",
+      label: "Orders",
       onClick: () => {
         navigate(`/admin/orders`);
       },
@@ -117,7 +117,7 @@ const AdminLayout = ({ children }) => {
     {
       key: "13",
       icon: <RollbackOutlined />,
-      label: "Ana Sayfaya Git",
+      label: "Go to Home Page",
       onClick: () => {
         navigate(`/`);
       },
@@ -148,7 +148,7 @@ const AdminLayout = ({ children }) => {
                 color: "white",
               }}
             >
-              <h2>Admin Paneli</h2>
+              <h2>Admin Panel</h2>
             </div>
           </Header>
           <Content>
@@ -160,7 +160,6 @@ const AdminLayout = ({ children }) => {
               }}
             >
               {children}
-              asd
             </div>
           </Content>
         </Layout>
