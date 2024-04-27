@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../../context/CartProvider";
 import "./Header.css";
 
-const Header = ({ setIsSearchShow }) => {
+export const Header = ({ setIsSearchShow }) => {
   const { cartItems } = useContext(CartContext);
   const user = localStorage.getItem("user");
   const { pathname } = useLocation();
