@@ -13,8 +13,14 @@ import { useNavigate } from "react-router-dom";
 
 const { Sider, Header, Content } = Layout;
 
-const AdminLayout = ({ children }) => {
+const getUserRole = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  return user ? user.role : null;
+};
+
+export const AdminLayout = ({ children }) => {
   const navigate = useNavigate();
+  const userRole = getUserRole();
 
   const menuItems = [
     {
@@ -41,7 +47,7 @@ const AdminLayout = ({ children }) => {
         },
         {
           key: "4",
-          label: "Yeni Kategori Oluştur",
+          label: "Create Category",
           path: "/admin/categories/create",
           onClick: () => {
             navigate("/admin/categories/create");
@@ -57,7 +63,7 @@ const AdminLayout = ({ children }) => {
       children: [
         {
           key: "6",
-          label: "Ürün Listesi",
+          label: "Product List",
           path: "/admin/products",
           onClick: () => {
             navigate(`/admin/products`);
@@ -81,7 +87,7 @@ const AdminLayout = ({ children }) => {
       children: [
         {
           key: "9",
-          label: "Kupon Listesi",
+          label: "Coupon List",
           path: "/admin/coupons",
           onClick: () => {
             navigate(`/admin/coupons`);
@@ -123,49 +129,53 @@ const AdminLayout = ({ children }) => {
       },
     },
   ];
-  return (
-    <div className="admin-layout">
-      <Layout
-        style={{
-          minHeight: "100vh",
-        }}
-      >
-        <Sider width={200} theme="dark">
-          <Menu
-            mode="vertical"
-            style={{
-              height: "100%",
-            }}
-            items={menuItems}
-          />
-        </Sider>
-        <Layout>
-          <Header>
-            <div
+  if (userRole !== "admin") {
+    return (
+      <div className="admin-layout">
+        <Layout
+          style={{
+            minHeight: "100vh",
+          }}
+        >
+          <Sider width={200} theme="dark">
+            <Menu
+              mode="vertical"
               style={{
-                display: "flex",
-                justifyContent: "space-between",
-                color: "white",
+                height: "100%",
               }}
-            >
-              <h2>Admin Panel</h2>
-            </div>
-          </Header>
-          <Content>
-            <div
-              className="site-layout-background"
-              style={{
-                padding: "24px 50px",
-                minHeight: 360,
-              }}
-            >
-              {children}
-            </div>
-          </Content>
+              items={menuItems}
+            />
+          </Sider>
+          <Layout>
+            <Header>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  color: "white",
+                }}
+              >
+                <h2>Admin Panel</h2>
+              </div>
+            </Header>
+            <Content>
+              <div
+                className="site-layout-background"
+                style={{
+                  padding: "24px 50px",
+                  minHeight: 360,
+                }}
+              >
+                {children}
+              </div>
+            </Content>
+          </Layout>
         </Layout>
-      </Layout>
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return (window.location.href = "/");
+  }
 };
 
 export default AdminLayout;
