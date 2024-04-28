@@ -28,10 +28,6 @@ const ProductSchema = mongoose.Schema(
       },
     ],
     reviews: [ReviewSchema],
-    description: {
-      type: String,
-      required: true,
-    },
     colors: [
       {
         type: String,
@@ -58,6 +54,7 @@ const ProductSchema = mongoose.Schema(
       ref: "Category",
       requried: true,
     },
+    description: { type: String, required: true },
   },
   { timestamps: true }
 );
