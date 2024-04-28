@@ -12,7 +12,6 @@ router.post("/", async (req, res) => {
     });
 
     await newCategory.save();
-
     res.status(201).json(newCategory);
   } catch (error) {
     console.log(error);

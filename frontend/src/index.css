@@ -1,105 +1,15 @@
-/*! base start  */
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500&display=swap");
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-
-/* Regular */
-@font-face {
-  font-family: 'Sailec';
-  src: url('assets/fonts/sailec/Sailec-Regular.eot');
-  src:
-    url('assets/fonts/sailec/Sailec-Regular.eot?#iefix')
-      format('embedded-opentype'),
-    url('assets/fonts/sailec/Sailec-Regular.woff2') format('woff2'),
-    url('assets/fonts/sailec/Sailec-Regular.woff') format('woff'),
-    url('assets/fonts/sailec/Sailec-Regular.ttf') format('truetype'),
-    url('assets/fonts/sailec/Sailec-Regular.svg#Sailec-Regular') format('svg');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Regular Italic */
-@font-face {
-  font-family: 'Sailec';
-  src: url('assets/fonts/sailec/Sailec-RegularItalic.eot');
-  src:
-    url('assets/fonts/sailec/Sailec-RegularItalic.eot?#iefix')
-      format('embedded-opentype'),
-    url('assets/fonts/sailec/Sailec-RegularItalic.woff2') format('woff2'),
-    url('assets/fonts/sailec/Sailec-RegularItalic.woff') format('woff'),
-    url('assets/fonts/sailec/Sailec-RegularItalic.ttf') format('truetype'),
-    url('assets/fonts/sailec/Sailec-RegularItalic.svg#Sailec-RegularItalic')
-      format('svg');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Medium */
-@font-face {
-  font-family: 'Sailec';
-  src: url('assets/fonts/sailec/Sailec-Medium.eot');
-  src:
-    url('assets/fonts/sailec/Sailec-Medium.eot?#iefix')
-      format('embedded-opentype'),
-    url('assets/fonts/sailec/Sailec-Medium.woff2') format('woff2'),
-    url('assets/fonts/sailec/Sailec-Medium.woff') format('woff'),
-    url('assets/fonts/sailec/Sailec-Medium.ttf') format('truetype'),
-    url('assets/fonts/sailec/Sailec-Medium.svg#Sailec-Medium') format('svg');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Medium Italic */
-@font-face {
-  font-family: 'Sailec';
-  src: url('assets/fonts/sailec/Sailec-MediumItalic.eot');
-  src:
-    url('assets/fonts/sailec/Sailec-MediumItalic.eot?#iefix')
-      format('embedded-opentype'),
-    url('assets/fonts/sailec/Sailec-MediumItalic.woff2') format('woff2'),
-    url('assets/fonts/sailec/Sailec-MediumItalic.woff') format('woff'),
-    url('assets/fonts/sailec/Sailec-MediumItalic.ttf') format('truetype'),
-    url('assets/fonts/sailec/Sailec-MediumItalic.svg#Sailec-MediumItalic')
-      format('svg');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Bold */
-@font-face {
-  font-family: 'Sailec';
-  src: url('assets/fonts/sailec/Sailec-Bold.eot');
-  src:
-    url('assets/fonts/sailec/Sailec-Bold.eot?#iefix')
-      format('embedded-opentype'),
-    url('assets/fonts/sailec/Sailec-Bold.woff2') format('woff2'),
-    url('assets/fonts/sailec/Sailec-Bold.woff') format('woff'),
-    url('assets/fonts/sailec/Sailec-Bold.ttf') format('truetype'),
-    url('assets/fonts/sailec/Sailec-Bold.svg#Sailec-Bold') format('svg');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: 'Sailec';
+  font-family: "Jost", sans-serif;
 }
 
 body {
   overflow-x: hidden;
-  margin: 0;
-  font-family: 'Sailec';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
 }
 
 ul,
@@ -204,43 +114,7 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
 }
 
-/* react-slick-css */
-
-.slick-slide > div {
-  margin: 0 10px;
-}e
-
-.slick-list {
-  margin: 0 -10px;
-}
-
-
 /*! base end  */
-
-#conversation-badge {
-  background: #D4D4D4;
-  color: Black;
-  width: 200px;
-  height: 20px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px 30px;
-  cursor: pointer;
-}
-
-@keyframes tilt-shaking {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(0eg); }
-  75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.tilt-animation {
-  animation: tilt-shaking 0.25s;
-}
 
 /* base responsive  */
 
@@ -272,4 +146,14 @@ input[type="number"]::-webkit-inner-spin-button {
   .container {
     max-width: 350px;
   }
+}
+
+/* react-slick-css */
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
 }
