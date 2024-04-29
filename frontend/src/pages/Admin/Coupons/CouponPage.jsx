@@ -10,16 +10,16 @@ const CouponPage = () => {
 
   const columns = [
     {
-      title: "Kategori Görseli",
-      dataIndex: "img",
-      key: "img",
-      render: (imgSrc) => <img src={imgSrc} alt="Image" width={100} />,
+      title: "Coupon Code",
+      dataIndex: "code",
+      key: "code",
+      render: (code) => <b>{code}</b>,
     },
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      render: (text) => <b>{text}</b>,
+      title: "Discount Percent",
+      dataIndex: "discountPercent",
+      key: "discountPercent",
+      render: (code) => <span>%{code}</span>,
     },
     {
       title: "Actions",
@@ -29,19 +29,19 @@ const CouponPage = () => {
         <Space>
           <Button
             type="primary"
-            onClick={() => navigate(`/admin/categories/update/${record._id}`)}
+            onClick={() => navigate(`/admin/coupons/update/${record._id}`)}
           >
-            Güncelle
+           Update
           </Button>
           <Popconfirm
             title="Kategoriyi Sil"
             description="Kategoriyi silmek istediğinizden emin misiniz?"
             okText="Yes"
             cancelText="No"
-            onConfirm={() => deleteCategory(record._id)}
+            onConfirm={() => deleteCoupon(record._id)}
           >
             <Button type="primary" danger>
-              Sil
+              Delete
             </Button>
           </Popconfirm>
         </Space>
@@ -53,7 +53,7 @@ const CouponPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${apiUrl}/api/categories`);
+      const response = await fetch(`${apiUrl}/api/coupons`);
 
       if (response.ok) {
         const data = await response.json();
@@ -68,14 +68,14 @@ const CouponPage = () => {
     }
   }, [apiUrl]);
 
-  const deleteCategory = async (categoryId) => {
+  const deleteCoupon = async (couponId) => {
     try {
-      const response = await fetch(`${apiUrl}/api/categories/${categoryId}`, {
+      const response = await fetch(`${apiUrl}/api/coupons/${couponId}`, {
         method: "DELETE",
       });
 
       if (response.ok) {
-        message.success("Kategori başarıyla silindi.");
+        message.success("Kupon başarıyla silindi.");
         fetchCategories();
       } else {
         message.error("Silme işlemi başarısız.");

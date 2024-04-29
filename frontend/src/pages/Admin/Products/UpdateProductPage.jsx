@@ -1,26 +1,52 @@
 import { Button, Form, Input, InputNumber, Select, Spin, message } from "antd";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-const CreateProductPage = () => {
+const UpdateProductPage = () => {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
+
   const [form] = Form.useForm();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const params = useParams();
+  const productId = params.id;
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       setLoading(true);
 
       try {
-        const response = await fetch(`${apiUrl}/api/categories`);
+        const [categoriesResponse, singleProductResponse] = await Promise.all([
+          fetch(`${apiUrl}/api/categories`),
+          fetch(`${apiUrl}/api/products/${productId}`),
+        ]);
 
-        if (response.ok) {
-          const data = await response.json();
-          setCategories(data);
-        } else {
+        if (!categoriesResponse.ok || !singleProductResponse.ok) {
           message.error("Veri getirme başarısız.");
+          return;
+        }
+
+        const [categoriesData, singleProductData] = await Promise.all([
+          categoriesResponse.json(),
+          singleProductResponse.json(),
+        ]);
+
+        setCategories(categoriesData);
+
+        if (singleProductData) {
+          form.setFieldsValue({
+            name: singleProductData.name,
+            current: singleProductData.price.current,
+            discount: singleProductData.price.discount,
+            description: singleProductData.description,
+            img: singleProductData.img.join("\n"),
+            colors: singleProductData.colors.join("\n"),
+            sizes: singleProductData.sizes.join("\n"),
+            category: singleProductData.category,
+          });
         }
       } catch (error) {
         console.log("Veri hatası:", error);
@@ -28,18 +54,18 @@ const CreateProductPage = () => {
         setLoading(false);
       }
     };
-
-    fetchCategories();
-  }, [apiUrl]);
+    fetchData();
+  }, [apiUrl, productId, form]);
 
   const onFinish = async (values) => {
+    console.log(values);
     const imgLinks = values.img.split("\n").map((link) => link.trim());
     const colors = values.colors.split("\n").map((link) => link.trim());
     const sizes = values.sizes.split("\n").map((link) => link.trim());
     setLoading(true);
     try {
-      const response = await fetch(`${apiUrl}/api/products`, {
-        method: "POST",
+      const response = await fetch(`${apiUrl}/api/products/${productId}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -56,18 +82,17 @@ const CreateProductPage = () => {
       });
 
       if (response.ok) {
-        message.success("Ürün başarıyla oluşturuldu.");
-        form.resetFields();
+        message.success("Ürün başarıyla güncellendi.");
+        navigate("/admin/products");
       } else {
-        message.error("Ürün oluşturulurken bir hata oluştu.");
+        message.error("Ürün güncellenirken bir hata oluştu.");
       }
     } catch (error) {
-      console.log("Ürün oluşturma hatası:", error);
+      console.log("Ürün güncelleme hatası:", error);
     } finally {
       setLoading(false);
     }
   };
-  
 
   return (
     <Spin spinning={loading}>
@@ -190,11 +215,11 @@ const CreateProductPage = () => {
         </Form.Item>
 
         <Button type="primary" htmlType="submit">
-          Oluştur
+          Update
         </Button>
       </Form>
     </Spin>
   );
 };
 
-export default CreateProductPage;
+export default UpdateProductPage;
