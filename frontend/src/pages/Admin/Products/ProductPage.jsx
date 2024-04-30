@@ -101,8 +101,8 @@ const ProductPage = () => {
         }
 
         const [categoriesData, productsData] = await Promise.all([
-          categoriesResponse.json,
-          productsResponse.json,
+          categoriesResponse.json(),
+          productsResponse.json(),
         ]);
 
         const productsWithCategories = productsData.map((product) => {

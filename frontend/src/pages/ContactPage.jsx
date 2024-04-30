@@ -1,6 +1,6 @@
 import Contact from "../components/Contact/Contact"
 
-const ContactPage = () => {
+export const ContactPage = () => {
   return (
     <>
         <Contact />

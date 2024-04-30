@@ -4,7 +4,7 @@ import { message } from "antd";
 import { useState } from "react";
 import "./Search.css";
 
-const Search = ({ isSearchShow, setIsSearchShow }) => {
+export const Search = ({ isSearchShow, setIsSearchShow }) => {
   const [searchResults, setSearchResults] = useState(null);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 

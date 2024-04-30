@@ -7,7 +7,7 @@ const CartTotals = () => {
   const { cartItems } = useContext(CartContext);
 
   const cartItemTotals = cartItems.map((item) => {
-    const itemTotal = item.price.newPrice * item.quantity;
+    const itemTotal = item.price * item.quantity;
 
     return itemTotal;
   });
@@ -23,7 +23,7 @@ const CartTotals = () => {
     : subTotals.toFixed(2);
 
     return (
-      <div className="cart-totals">
+      <div className="cart-totals">,
         <h2>Cart totals</h2>
         <table>
           <tbody>

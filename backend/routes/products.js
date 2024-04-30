@@ -1,25 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/Product");
+const Product = require("../models/Product.js");
 
-// get all products
-
-router.get("/", async (req, res) => {
-  res.send("Get products");
-});
-
-// create new product
+// Yeni bir ürün oluşturma (Create)
 router.post("/", async (req, res) => {
   try {
     const newProduct = new Product(req.body);
     await newProduct.save();
+
     res.status(201).json(newProduct);
   } catch (error) {
     console.log(error);
+    res.status(500).json({ error: "Server error." });
   }
 });
 
-// get all products (Read - All)
+// Tüm ürünleri getirme (Read - All)
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find();
@@ -31,7 +27,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// get a specific category  (Read - Single)
+// Belirli bir ürünü getirme (Read - Single)
 router.get("/:productId", async (req, res) => {
   try {
     const productId = req.params.productId;
@@ -48,7 +44,7 @@ router.get("/:productId", async (req, res) => {
   }
 });
 
-// update products
+// Ürün güncelleme (Update)
 router.put("/:productId", async (req, res) => {
   try {
     const productId = req.params.productId;
@@ -71,7 +67,7 @@ router.put("/:productId", async (req, res) => {
   }
 });
 
-// delete products
+// Ürün silme (Delete)
 router.delete("/:productId", async (req, res) => {
   try {
     const productId = req.params.productId;
@@ -83,6 +79,21 @@ router.delete("/:productId", async (req, res) => {
     }
 
     res.status(200).json(deletedProduct);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
+});
+
+// Ürünleri isme göre ara
+router.get("/search/:productName", async (req, res) => {
+  try {
+    const productName = req.params.productName;
+    const products = await Product.find({
+      name: { $regex: productName, $options: "i" },
+    });
+
+    res.status(200).json(products);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Server error." });

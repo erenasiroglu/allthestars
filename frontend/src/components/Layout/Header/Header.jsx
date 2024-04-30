@@ -212,9 +212,6 @@ export const Header = ({ setIsSearchShow }) => {
                 >
                   <i className="bi bi-search"></i>
                 </button>
-                {/* <a href="#">
-                  <i className="bi bi-heart"></i>
-                </a> */}
                 <div className="header-cart">
                   <Link to={"/cart"} className="header-cart-link">
                     <i className="bi bi-bag"></i>
