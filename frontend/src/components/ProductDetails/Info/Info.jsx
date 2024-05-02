@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
+import "./Info.css";
 import { useContext, useRef } from "react";
 import { CartContext } from "../../../context/CartProvider";
-import PropTypes from "prop-types";
 
-export const Info = ({ singleProduct }) => {
+const Info = ({ singleProduct }) => {
   const quantityRef = useRef();
   const { addToCart, cartItems } = useContext(CartContext);
   const originalPrice = singleProduct.price.current;
@@ -40,7 +41,7 @@ export const Info = ({ singleProduct }) => {
         <span>2 reviews</span>
       </div>
       <div className="product-price">
-      <s className="old-price">${originalPrice.toFixed(2)}</s>
+        <s className="old-price">${originalPrice.toFixed(2)}</s>
         <strong className="new-price">${discountedPrice.toFixed(2)}</strong>
       </div>
       <div
@@ -53,7 +54,8 @@ export const Info = ({ singleProduct }) => {
             <div className="colors-label">
               <span>Color</span>
             </div>
-            {singleProduct.colors.map((color, index) => (
+            <div className="colors-wrapper">
+              {singleProduct.colors.map((color, index) => (
                 <div className="color-wrapper" key={index}>
                   <label
                     style={{
@@ -64,20 +66,20 @@ export const Info = ({ singleProduct }) => {
                   </label>
                 </div>
               ))}
+            </div>
           </div>
           <div className="values">
             <div className="values-label">
               <span>Size</span>
             </div>
             <div className="values-list">
-              <span className="active">XS</span>
               {singleProduct.sizes.map((size, index) => (
                 <span key={index}>{size.toUpperCase()}</span>
               ))}
             </div>
           </div>
           <div className="cart-button">
-          <input
+            <input
               type="number"
               defaultValue="1"
               min="1"

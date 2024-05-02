@@ -6,47 +6,50 @@ import { CartContext } from "../../context/CartProvider";
 const CartTotals = () => {
   const [fastCargoChecked, setFastCargoChecked] = useState(false);
   const { cartItems } = useContext(CartContext);
-  const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const stripePublicKey = import.meta.env.VITE_API_STRIPE_PUBLIC_KEY;
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : null;
 
   const handlePayment = async () => {
     if (!user) {
-      message.info("Please login to proceed to checkout");
+      return message.info("Please login to proceed to checkout");
     }
+
     const body = {
       products: cartItems,
       user: user,
-      cargoFee: fastCargoChecked ? 15 : 0,
+      cargoFee: fastCargoChecked ? cargoFee : 0,
     };
 
     try {
       const stripe = await loadStripe(stripePublicKey);
+
       const res = await fetch(`${apiUrl}/api/payment`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+
       if (!res.ok) {
-        message.error("Payment failed");
+        return message.error("Payment failed, please try again later");
       }
+
       const session = await res.json();
+
       const result = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
-      console.log(result);
+
       if (result.error) {
         throw new Error(result.error.message);
       }
     } catch (error) {
       console.log(error);
     }
-    console.log(body);
   };
+
 
   const cartItemTotals = cartItems.map((item) => {
     const itemTotal = item.price * item.quantity;
