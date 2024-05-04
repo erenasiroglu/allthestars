@@ -21,6 +21,7 @@ import CreateCouponPage from "./pages/Admin/Coupons/CreateCouponPage";
 import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage";
 import SuccessPage from "./pages/SuccessPage";
 import OrderPage from "./pages/Admin/OrderPage";
+import DashboardPage from "./pages/Admin/DashboardPage";
 function App() {
   return (
     <Routes>
@@ -34,6 +35,7 @@ function App() {
       <Route path="/blog/:id" element={<BlogDetailsPage />} />
       <Route path="/success" element={<SuccessPage />} />
       <Route path="/admin/*">
+        <Route index element={<DashboardPage />} />
         <Route path="users" element={<UserPage />} />
         <Route path="categories" element={<CategoryPage />} />
         <Route path="categories/create" element={<CreateCategoryPage />} />
