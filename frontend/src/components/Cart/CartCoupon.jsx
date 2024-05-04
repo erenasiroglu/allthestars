@@ -9,13 +9,13 @@ const CartCoupon = () => {
 
   const applyCoupon = async () => {
     if (couponCode.trim().length === 0) {
-      return message.warning("Boş değer girilimez.");
+      return message.warning("Don't leave the coupon code empty!");
     }
     try {
       const res = await fetch(`${apiUrl}/api/coupons/code/${couponCode}`);
 
       if (!res.ok) {
-        return message.warning("Girdiğiniz kupon kodu yanlış!");
+        return message.warning("Coupon code is invalid!");
       }
 
       const data = await res.json();
@@ -28,7 +28,7 @@ const CartCoupon = () => {
 
       setCartItems(updatedCartItems);
 
-      message.success(`${couponCode} kupon kodu başarıyla uygulandı.`);
+      message.success(`${couponCode} has been applied!`);
     } catch (error) {
       console.log(error);
     }
