@@ -43,7 +43,7 @@ const Products = () => {
           const data = await response.json();
           setProducts(data);
         } else {
-          message.error("Veri getirme başarısız.");
+          message.error("Failed to fetch products.");
         }
       } catch (error) {
         console.log("Veri hatası:", error);

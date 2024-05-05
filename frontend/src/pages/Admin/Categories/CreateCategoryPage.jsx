@@ -18,13 +18,13 @@ const CreateCategoryPage = () => {
       });
 
       if (response.ok) {
-        message.success("Kategori başarıyla oluşturuldu.");
+        message.success("Successfully created a new category.");
         form.resetFields();
       } else {
-        message.error("Kategori oluşturulurken bir hata oluştu.");
+        message.error("Failed to create a new category.");
       }
     } catch (error) {
-      console.log("Kategori güncelleme hatası:", error);
+      console.log("API Error:", error);
     } finally {
       setLoading(false);
     }
@@ -34,12 +34,12 @@ const CreateCategoryPage = () => {
     <Spin spinning={loading}>
       <Form name="basic" layout="vertical" onFinish={onFinish} form={form}>
         <Form.Item
-          label="Kategori İsmi"
+          label="Category Name"
           name="name"
           rules={[
             {
               required: true,
-              message: "Lütfen kategori adını girin!",
+              message: "Please input category name!",
             },
           ]}
         >
@@ -47,12 +47,12 @@ const CreateCategoryPage = () => {
         </Form.Item>
 
         <Form.Item
-          label="Kategori Görseli (Link)"
+          label="Category Image (Link)"
           name="img"
           rules={[
             {
               required: true,
-              message: "Lütfen kategori görsel linkini girin!",
+              message: "Please input category image link!",
             },
           ]}
         >
@@ -60,7 +60,7 @@ const CreateCategoryPage = () => {
         </Form.Item>
 
         <Button type="primary" htmlType="submit">
-          Oluştur
+          Createa
         </Button>
       </Form>
     </Spin>

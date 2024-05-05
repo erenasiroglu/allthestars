@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
 import "./Gallery.css";
+import { useEffect } from "react";
 
 function PrevBtn({ onClick }) {
   return (
@@ -43,9 +44,13 @@ PrevBtn.propTypes = {
 
 const Gallery = ({ singleProduct }) => {
   const [activeImg, setActiveImg] = useState({
-    img: singleProduct.img[0], // singleProduct.img[0] is the main image
+    img: "",
     imgIndex: 0,
   });
+
+  useEffect(() => {
+    setActiveImg({ img: singleProduct.img[0], imgIndex: 0 });
+  }, [singleProduct.img]);
 
   const sliderSettings = {
     dots: false,
@@ -87,20 +92,6 @@ const Gallery = ({ singleProduct }) => {
               ))}
             </Slider>
           </ol>
-        </div>
-        <div className="glide__arrows" data-glide-el="controls">
-          <button
-            className="glide__arrow glide__arrow--left"
-            data-glide-dir="<"
-          >
-            <i className="bi bi-chevron-left"></i>
-          </button>
-          <button
-            className="glide__arrow glide__arrow--right"
-            data-glide-dir=">"
-          >
-            <i className="bi bi-chevron-right"></i>
-          </button>
         </div>
         <div className="glide__arrows" data-glide-el="controls"></div>
       </div>

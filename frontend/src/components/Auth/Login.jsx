@@ -29,17 +29,17 @@ export const Login = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("user", JSON.stringify(data));
-        message.success("Giriş başarılı.");
+        message.success("Login successful.");
         if (data.role === "admin") {
           window.location.href = "/admin";
         } else {
           navigate("/");
         }
       } else {
-        message.error("Giriş başarısız.");
+        message.error("Login failed.");
       }
     } catch (error) {
-      console.log("Giriş hatası:", error);
+      console.log("API Error:", error);
     }
   };
 
@@ -52,7 +52,7 @@ export const Login = () => {
             <span>
               Username or email address <span className="required">*</span>
             </span>
-            <input type="text" name="email" onChange={handleInputChange} />
+            <input type="text" name="email" onChange={handleInputChange} required />
           </label>
         </div>
         <div>
@@ -64,6 +64,7 @@ export const Login = () => {
               type="password"
               name="password"
               onChange={handleInputChange}
+              required
             />
           </label>
         </div>
@@ -72,7 +73,9 @@ export const Login = () => {
             <input type="checkbox" />
             <span>Remember me</span>
           </label>
-          <button className="btn btn-sm">Login</button>
+          <button className="btn btn-sm">
+            Login
+          </button>
         </p>
         <a href="#" className="form-link">
           Lost your password?

@@ -59,7 +59,7 @@ const CouponPage = () => {
         const data = await response.json();
         setDataSource(data);
       } else {
-        message.error("Veri getirme başarısız.");
+        message.error("Failed to fetch categories.");
       }
     } catch (error) {
       console.log("Veri hatası:", error);
@@ -75,10 +75,10 @@ const CouponPage = () => {
       });
 
       if (response.ok) {
-        message.success("Kupon başarıyla silindi.");
+        message.success("Coupon successfully deleted.");
         fetchCategories();
       } else {
-        message.error("Silme işlemi başarısız.");
+        message.error("Failed to delete the coupon.");
       }
     } catch (error) {
       console.log("Silme hatası:", error);

@@ -21,12 +21,12 @@ const UpdateCategoryPage = () => {
       });
 
       if (response.ok) {
-        message.success("Kategori başarıyla güncellendi.");
+        message.success("Updated the category successfully.");
       } else {
-        message.error("Kategori güncellenirken bir hata oluştu.");
+        message.error("Failed to update the category.");
       }
     } catch (error) {
-      console.log("Kategori güncelleme hatası:", error);
+      console.log("API Error:", error);
     } finally {
       setLoading(false);
     }
@@ -40,7 +40,7 @@ const UpdateCategoryPage = () => {
         const response = await fetch(`${apiUrl}/api/categories/${categoryId}`);
 
         if (!response.ok) {
-          throw new Error("Verileri getirme hatası");
+          throw new Error("Failed to fetch the category.");
         }
 
         const data = await response.json();
@@ -52,7 +52,7 @@ const UpdateCategoryPage = () => {
           });
         }
       } catch (error) {
-        console.log("Veri hatası:", error);
+        console.log("API Error:", error);
       } finally {
         setLoading(false);
       }
@@ -70,12 +70,12 @@ const UpdateCategoryPage = () => {
         onFinish={onFinish}
       >
         <Form.Item
-          label="Kategori İsmi"
+          label="Category Name"
           name="name"
           rules={[
             {
               required: true,
-              message: "Lütfen kategori adını girin!",
+              message: "Please input category name!",
             },
           ]}
         >
@@ -83,12 +83,12 @@ const UpdateCategoryPage = () => {
         </Form.Item>
 
         <Form.Item
-          label="Kategori Görseli (Link)"
+          label="Category Image (Link)"
           name="img"
           rules={[
             {
               required: true,
-              message: "Lütfen kategori görsel linkini girin!",
+              message: "Please input category image link!",
             },
           ]}
         >
@@ -96,7 +96,7 @@ const UpdateCategoryPage = () => {
         </Form.Item>
 
         <Button type="primary" htmlType="submit">
-          Güncelle
+          Update
         </Button>
       </Form>
     </Spin>

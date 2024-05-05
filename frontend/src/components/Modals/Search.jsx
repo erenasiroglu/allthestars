@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { message } from "antd";
+import { Spin, message } from "antd";
 import { useState } from "react";
 import "./Search.css";
 
-export const Search = ({ isSearchShow, setIsSearchShow }) => {
+const Search = ({ isSearchShow, setIsSearchShow }) => {
   const [searchResults, setSearchResults] = useState(null);
+  const [loading, setLoading] = useState(false);
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const handleCloseModal = () => {
@@ -15,32 +16,36 @@ export const Search = ({ isSearchShow, setIsSearchShow }) => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const productName = e.target[0].value;
+    setLoading(true);
 
-    if (productName.trim().length === 0) {
-      message.warning("Boş karakter arayamazsınız!");
+    const productName = e.target[0].value.trim();
+
+    if (productName.length === 0) {
+      message.warning("Please enter a product name.");
+      setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch(
-        `${apiUrl}/api/products/search/${productName.trim()}`
-      );
+      const res = await fetch(`${apiUrl}/api/products/search/${productName}`);
 
       if (!res.ok) {
-        message.error("Ürün getirme hatası!");
+        message.error("Something went wrong.");
+        setLoading(false);
         return;
       }
 
       const data = await res.json();
       setSearchResults(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
   return (
-    <div className={`modal-search ${isSearchShow ? "show" : ""} `}>
+    <div className={`modal-search ${isSearchShow ? "show" : ""}`}>
       <div className="modal-wrapper">
         <h3 className="modal-title">Search for products</h3>
         <p className="modal-text">
@@ -56,39 +61,35 @@ export const Search = ({ isSearchShow, setIsSearchShow }) => {
           <div className="search-heading">
             <h3>RESULTS FROM PRODUCT</h3>
           </div>
+          <Spin spinning={loading} />
           <div
             className="results"
             style={{
               display: `${
-                searchResults?.length === 0 || !searchResults ? "flex" : "grid"
+                !searchResults || searchResults.length === 0 ? "flex" : "grid"
               }`,
             }}
           >
             {!searchResults && (
               <b
                 className="result-item"
-                style={{
-                  justifyContent: "center",
-                  width: "100%",
-                }}
+                style={{ justifyContent: "center", width: "100%" }}
               >
-                Ürün Ara...
+                {loading
+                  ? "Searching..."
+                  : "Start typing to see products you are looking for."}
               </b>
             )}
             {searchResults?.length === 0 && (
-              <a
-                href="#"
+              <p
                 className="result-item"
-                style={{
-                  justifyContent: "center",
-                  width: "100%",
-                }}
+                style={{ justifyContent: "center", width: "100%" }}
               >
-                😔Aradığınız Ürün Bulunamadı😔
-              </a>
+                😔The product you were looking for was not found😔
+              </p>
             )}
             {searchResults?.length > 0 &&
-              searchResults?.map((resultItem) => (
+              searchResults.map((resultItem) => (
                 <Link
                   to={`product/${resultItem._id}`}
                   className="result-item"
@@ -121,9 +122,9 @@ export const Search = ({ isSearchShow, setIsSearchShow }) => {
   );
 };
 
-export default Search;
-
 Search.propTypes = {
   isSearchShow: PropTypes.bool,
   setIsSearchShow: PropTypes.func,
 };
+
+export default Search;

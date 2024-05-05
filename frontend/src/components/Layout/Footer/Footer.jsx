@@ -1,7 +1,7 @@
 import './Footer.css'
 const Footer = () => {
   return <footer className="footer">
-  <div className="subscribe-row">
+  {/* <div className="subscribe-row">
     <div className="container">
       <div className="footer-row-wrapper">
         <div className="footer-subscribe-wrapper">
@@ -32,11 +32,11 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  </div>
+  </div> */}
   <div className="widgets-row">
     <div className="container">
       <div className="footer-widgets">
-        <div className="brand-info">
+        {/* <div className="brand-info">
           <div className="footer-logo">
              <a href="index.html" className="logo">LOGO</a>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
                 href="mailto:erenasiroglu1@gmail.com">erenasiroglu1@gmail.com</a>
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="widget-nav-menu">
           <h4>Information</h4>
           <ul className="menu-list">

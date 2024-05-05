@@ -20,7 +20,7 @@ const CreateProductPage = () => {
           const data = await response.json();
           setCategories(data);
         } else {
-          message.error("Veri getirme başarısız.");
+          message.error("Failed to fetch categories.");
         }
       } catch (error) {
         console.log("Veri hatası:", error);
@@ -56,7 +56,7 @@ const CreateProductPage = () => {
       });
 
       if (response.ok) {
-        message.success("Ürün başarıyla oluşturuldu.");
+        message.success("Successfully created a new product.");
         form.resetFields();
       } else {
         message.error("Ürün oluşturulurken bir hata oluştu.");

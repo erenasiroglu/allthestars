@@ -25,7 +25,7 @@ const UpdateProductPage = () => {
         ]);
 
         if (!categoriesResponse.ok || !singleProductResponse.ok) {
-          message.error("Veri getirme başarısız.");
+          message.error("Failed to fetch categories or the product.");
           return;
         }
 
@@ -82,7 +82,7 @@ const UpdateProductPage = () => {
       });
 
       if (response.ok) {
-        message.success("Ürün başarıyla güncellendi.");
+        message.success("Successfully updated the product.");
         navigate("/admin/products");
       } else {
         message.error("Ürün güncellenirken bir hata oluştu.");

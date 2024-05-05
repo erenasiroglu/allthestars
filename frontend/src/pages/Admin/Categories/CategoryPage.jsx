@@ -10,7 +10,7 @@ const CouponPage = () => {
 
   const columns = [
     {
-      title: "Kategori Görseli",
+      title: "Image",
       dataIndex: "img",
       key: "img",
       render: (imgSrc) => <img src={imgSrc} alt="Image" width={100} />,
@@ -31,17 +31,17 @@ const CouponPage = () => {
             type="primary"
             onClick={() => navigate(`/admin/categories/update/${record._id}`)}
           >
-            Güncelle
+            Update
           </Button>
           <Popconfirm
-            title="Kategoriyi Sil"
-            description="Kategoriyi silmek istediğinizden emin misiniz?"
+            title="De"
+            description="Are you sure category image?"
             okText="Yes"
             cancelText="No"
             onConfirm={() => deleteCategory(record._id)}
           >
             <Button type="primary" danger>
-              Sil
+              Delete
             </Button>
           </Popconfirm>
         </Space>
@@ -59,7 +59,7 @@ const CouponPage = () => {
         const data = await response.json();
         setDataSource(data);
       } else {
-        message.error("Veri getirme başarısız.");
+        message.error("Failed to fetch categories.");
       }
     } catch (error) {
       console.log("Veri hatası:", error);
@@ -75,10 +75,10 @@ const CouponPage = () => {
       });
 
       if (response.ok) {
-        message.success("Kategori başarıyla silindi.");
+        message.success("Category successfully deleted.");
         fetchCategories();
       } else {
-        message.error("Silme işlemi başarısız.");
+        message.error("Delete failed.");
       }
     } catch (error) {
       console.log("Silme hatası:", error);

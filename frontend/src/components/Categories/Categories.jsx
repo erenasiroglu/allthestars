@@ -16,7 +16,7 @@ const Categories = () => {
           const data = await response.json();
           setCategories(data);
         } else {
-          message.error("Veri getirme başarısız.");
+          message.error("Failed to fetch categories.");
         }
       } catch (error) {
         console.log("Veri hatası:", error);

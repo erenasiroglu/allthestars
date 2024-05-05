@@ -74,12 +74,12 @@ const ProductPage = () => {
       });
 
       if (response.ok) {
-        message.success("Kategori başarıyla silindi.");
+        message.success("Product deleted successfully.");
         setDataSource((prevProducts) => {
           return prevProducts.filter((product) => product._id !== productId);
         });
       } else {
-        message.error("Silme işlemi başarısız.");
+        message.error("Failed to delete product.");
       }
     } catch (error) {
       console.log("Silme hatası:", error);
@@ -97,7 +97,7 @@ const ProductPage = () => {
         ]);
 
         if (!categoriesResponse.ok || !productsResponse.ok) {
-          message.error("Veri getirme başarısız.");
+          message.error("Failed to fetch categories or products.");
         }
 
         const [categoriesData, productsData] = await Promise.all([
